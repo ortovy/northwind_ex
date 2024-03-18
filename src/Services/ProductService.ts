@@ -3,9 +3,11 @@ import { ProductModel } from "../Models/ProductModel";
 import { appConfig } from "../Utils/AppConfig";
 
 class ProductService {
-	public getAllProducts(){
-        const response = axios.get<ProductModel[]>(appConfig.productUrl);
-        console.log(response);
+	public async getAllProducts(){
+        const response = await axios.get<ProductModel[]>(appConfig.productUrl);
+        const products = response.data;
+        console.log(products);
+        return products;
     }
 }
 
