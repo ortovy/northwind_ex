@@ -1,0 +1,8 @@
+.Copyrights {
+    height:100%;
+    display:flex;
+    padding-left: 2%;
+    justify-content: left;
+    align-items: center;
+    font-size: 2vh;
+}
