@@ -1,23 +1,23 @@
-import { Home } from "../../HomeArea/Home/Home";
 import { Copyrights } from "../Copyrights/Copyrights";
 import { Menu } from "../Menu/Menu";
+import { Routing } from "../Routing/Routing";
 import { SiteHeader } from "../SiteHeader/SiteHeader";
 import "./Layout.css";
 
 export function Layout(): JSX.Element {
     return (
         <div className="Layout">
-			<header>
-                <SiteHeader/>
+            <header>
+                <SiteHeader />
             </header>
             <aside>
-                <Menu/>
+                <Menu />
             </aside>
             <main>
-                <Home/>
+                <Routing />
             </main>
             <footer>
-                <Copyrights/>
+                <Copyrights />
             </footer>
         </div>
     );
