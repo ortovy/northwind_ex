@@ -3,22 +3,33 @@ import "./ProductDetails.css";
 import { ProductModel } from "../../../Models/ProductModel";
 import { useEffect, useState } from "react";
 import { productService } from "../../../Services/ProductService";
+import { notify } from "../../../Utils/Notify";
+import { useTitle } from "../../../Utils/useTitle";
 
 
 
 export function ProductDetails(): JSX.Element {
     const[product, setProduct] = useState<ProductModel>(null);
+    
     const navigate = useNavigate();
     const params = useParams();
     const id = +params.id;
     useEffect(()=>{
-        productService.getOneProduct(id).then(dbProduct => setProduct(dbProduct));
+        productService.getOneProduct(id)
+        .then(dbProduct => setProduct(dbProduct))
+        .catch(err=> notify.error(err));
     },[])
+    useTitle("Northwind | "+ product?.name)
     async function deleteMe(){
+        try{
         const sure = window.confirm("Delete?");
         if(!sure) return;
         await productService.deleteProduct(id);
+        notify.success("product has been deleted...")
         navigate("/products")
+        } catch (err:any){
+            notify.error(err);
+        }
     }
     return (
         <div className="ProductDetails">

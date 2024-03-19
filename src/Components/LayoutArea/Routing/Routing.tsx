@@ -8,6 +8,7 @@ import { Spinner } from "../../SharedArea/Spinner/Spinner";
 import { ProductDetails } from "../../ProductArea/ProductDetails/ProductDetails";
 import { AddProduct } from "../../ProductArea/AddProduct/AddProduct";
 import { EditProduct } from "../../ProductArea/EditProduct/EditProduct";
+import { WorkersList } from "../../WorkersArea/WorkerList/WorkerList";
 
 export function Routing(): JSX.Element {
 
@@ -20,6 +21,7 @@ export function Routing(): JSX.Element {
                 <Route path="/home" element={<Home />} />
                 <Route path="/about" element={SuspenseAbout} />
                 <Route path="/products" element={<ProductList />} />
+                <Route path="/workers" element={<WorkersList />} />
                 <Route path="/products/new" element={<AddProduct/>}/>
                 <Route path="/products/details/:id" element={<ProductDetails />} />
                 <Route path="/products/edit/:id" element={<EditProduct />} />

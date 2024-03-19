@@ -30,6 +30,6 @@ class ProductService {
         await axios.delete(appConfig.productUrl + id);
         console.log(id + "deleted...")
     }
-}
+}                           
 
 export const productService = new ProductService();

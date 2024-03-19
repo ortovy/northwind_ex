@@ -3,9 +3,13 @@ import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { ProductModel } from "../../../Models/ProductModel";
 import { productService } from "../../../Services/ProductService";
+import { notify } from "../../../Utils/Notify";
+import { useTitle } from "../../../Utils/useTitle";
 import "./EditProduct.css";
 
 export function EditProduct(): JSX.Element {
+
+    useTitle("Northwind | edit")
     const {register,handleSubmit, formState, setValue, watch } = useForm<ProductModel>();
     const navigate = useNavigate();
     const params = useParams();
@@ -17,14 +21,19 @@ export function EditProduct(): JSX.Element {
         setValue("price",dbProduct.price);
         setValue("stock",dbProduct.stock);
         setValue("imageUrl",dbProduct.imageUrl);
-       }) 
+       }).catch(err=>notify.error(err))
     },[])
 
     async function send(product: ProductModel){
+        try{
         product.id=id;
         product.image = (product.image as unknown as FileList)[0]
         await productService.updateProduct(product);
+        notify.success("Product has been edited!")
         navigate("/products")
+        } catch (err:any){
+            notify.error(err);
+        }
     }
         
     return (

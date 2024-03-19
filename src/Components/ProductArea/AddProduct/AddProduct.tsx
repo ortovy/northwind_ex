@@ -2,16 +2,23 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { ProductModel } from "../../../Models/ProductModel";
 import { productService } from "../../../Services/ProductService";
+import { notify } from "../../../Utils/Notify";
+import { useTitle } from "../../../Utils/useTitle";
 import "./AddProduct.css";
 
 export function AddProduct(): JSX.Element {
+    useTitle("Northwind | Add Product")
     const {register,handleSubmit,formState} = useForm<ProductModel>();
     const navigate = useNavigate();
     async function send(product: ProductModel){
+        try{
         product.image = (product.image as unknown as FileList)[0]
         await productService.addProduct(product);
+        notify.success("product has been added👏");
         navigate("/products")
-        
+        } catch (err:any){
+            notify.error(err);
+        }
     }
     return (
         <div className="AddProduct">
