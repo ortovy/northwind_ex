@@ -14,6 +14,12 @@ class ProductService {
         const product = response.data;
         return product;
     }
+    public async addProduct(product: ProductModel): Promise<void> {
+        const options = {headers:{ "Content-Type":"multipart/form-data" }}; //send text and files
+        const response = await axios.post<ProductModel>(appConfig.productUrl,product,options)
+        const dbProduct = response.data;
+        console.log(dbProduct);
+    }
 }
 
 export const productService = new ProductService();
