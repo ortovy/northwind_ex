@@ -20,6 +20,16 @@ class ProductService {
         const dbProduct = response.data;
         console.log(dbProduct);
     }
+    public async updateProduct(product: ProductModel): Promise<void> {
+        const options = {headers:{ "Content-Type":"multipart/form-data" }}; //send text and files
+        const response = await axios.put<ProductModel>(appConfig.productUrl + product.id ,product,options)
+        const dbProduct = response.data;
+        console.log(dbProduct);
+    }
+    public async deleteProduct(id:number): Promise<void> {
+        await axios.delete(appConfig.productUrl + id);
+        console.log(id + "deleted...")
+    }
 }
 
 export const productService = new ProductService();
