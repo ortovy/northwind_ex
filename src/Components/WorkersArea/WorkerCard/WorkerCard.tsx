@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { WorkerModel } from "../../../Models/WorkersModel";
 import "./WorkerCard.css";
 type WorkersCardProps = {
@@ -16,7 +17,9 @@ export function WorkerCard(props: WorkersCardProps): JSX.Element {
             </div>
 
             <div>
+            <NavLink to={"/workers/details/" + props.worker.id}>
                 <img src={props.worker.imageUrl}/>
+            </NavLink>
             </div>
         </div>
     );

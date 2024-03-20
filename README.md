@@ -47,3 +47,10 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 
 https://colorhunt.co/palette/2650732d95969ad0c2f1fada
+
+
+things you should 
+northwind-rest-api
+react-cli-snippets
+create-react-app
+

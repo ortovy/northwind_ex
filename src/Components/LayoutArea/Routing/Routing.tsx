@@ -9,6 +9,8 @@ import { ProductDetails } from "../../ProductArea/ProductDetails/ProductDetails"
 import { AddProduct } from "../../ProductArea/AddProduct/AddProduct";
 import { EditProduct } from "../../ProductArea/EditProduct/EditProduct";
 import { WorkersList } from "../../WorkersArea/WorkerList/WorkerList";
+import { WorkerDetails } from "../../WorkerArea/WorkerDetails/WorkerDetails";
+import { AddWorker } from "../../WorkerArea/AddWorker/AddWorker";
 
 export function Routing(): JSX.Element {
 
@@ -23,7 +25,9 @@ export function Routing(): JSX.Element {
                 <Route path="/products" element={<ProductList />} />
                 <Route path="/workers" element={<WorkersList />} />
                 <Route path="/products/new" element={<AddProduct/>}/>
+                <Route path="/workers/new" element={<AddWorker/>}/>
                 <Route path="/products/details/:id" element={<ProductDetails />} />
+                <Route path="/workers/details/:id" element={<WorkerDetails />} />
                 <Route path="/products/edit/:id" element={<EditProduct />} />
                 <Route path="/" element={<Navigate to="/home"/>} />
                 <Route path="*" element={<Page404 />} />

@@ -8,9 +8,9 @@ export function Menu(): JSX.Element {
             <NavLink to="/home">Home</NavLink>
             <NavLink end to="/products">Products</NavLink>
             <NavLink end to="/products/new" >AddProduct </NavLink>
+            <NavLink end to="/workers/new" >AddWorkers </NavLink>
             <NavLink to="/about">About</NavLink>
-            <NavLink to="/workers">Workers</NavLink>
-
+            <NavLink end to="/workers">Workers</NavLink>
             <TotalProducts/>
         </div>
     );
