@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { productService } from "../../../Services/ProductService";
 import { notify } from "../../../Utils/Notify";
 import { useTitle } from "../../../Utils/useTitle";
+import { Spinner } from "../../SharedArea/Spinner/Spinner";
 
 
 
@@ -31,6 +32,7 @@ export function ProductDetails(): JSX.Element {
             notify.error(err);
         }
     }
+    if(!product) return <Spinner/>
     return (
         <div className="ProductDetails">
             <h1>Name:{product?.name}</h1>
