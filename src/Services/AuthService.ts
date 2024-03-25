@@ -37,7 +37,7 @@ class AuthService {
 
     public logout(): void{
         store.dispatch(authActions.logout());
-        localStorage.removeItemItem("token");
+        localStorage.removeItem("token");
     }
 }
 
