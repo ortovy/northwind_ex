@@ -11,6 +11,8 @@ import { EditProduct } from "../../ProductArea/EditProduct/EditProduct";
 import { WorkersList } from "../../WorkersArea/WorkerList/WorkerList";
 import { WorkerDetails } from "../../WorkerArea/WorkerDetails/WorkerDetails";
 import { AddWorker } from "../../WorkerArea/AddWorker/AddWorker";
+import { Register } from "../../AuthArea/Register/Register";
+import { Login } from "../../AuthArea/Login/Login";
 
 export function Routing(): JSX.Element {
 
@@ -20,6 +22,9 @@ export function Routing(): JSX.Element {
     return (
         <div className="Routing">
             <Routes>
+
+                <Route path="/register" element={<Register />} />
+                <Route path="/login" element={<Login />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/about" element={SuspenseAbout} />
                 <Route path="/products" element={<ProductList />} />

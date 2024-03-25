@@ -1,6 +1,7 @@
 import { ProductModel } from "../Models/ProductModel";
 import { PayloadAction } from "@reduxjs/toolkit";
 import { WorkerModel } from "../Models/WorkersModel";
+import { UserModel } from "../Models/UserModel";
 // Init all products
 export function initProducts(currentState: ProductModel[],
     action: PayloadAction<ProductModel[]>): ProductModel[] {
@@ -34,11 +35,13 @@ export function deleteProduct(currentState: ProductModel[],
 }
 
 
+//------------------------Workers---------------------------------
+
 export function initWorker(currentState: WorkerModel[],
     action: PayloadAction<WorkerModel[]>): WorkerModel[] {
     return action.payload;
 }
-//add one product
+//add one worker
 export function addWorker(currentState: WorkerModel[],
     action: PayloadAction<WorkerModel>): WorkerModel[] {
     //const productToAdd = action.payload; //take payload
@@ -65,3 +68,17 @@ export function deleteWorker(currentState: WorkerModel[],
     //return newState;
 }
 
+//------------------------Auth---------------------------------
+
+export function register(currentState: UserModel[],
+    action:PayloadAction<UserModel>):UserModel {
+    return action.payload;
+    }
+export function login(currentState: UserModel[],
+    action:PayloadAction<UserModel>):UserModel {
+    return action.payload;
+    }
+export function logout(currentState: UserModel[],
+    action:PayloadAction<UserModel>):UserModel {
+    return null;
+    }
